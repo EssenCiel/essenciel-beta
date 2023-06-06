@@ -76,6 +76,7 @@ export default function App() {
                     <div className={`flex pt-5 flex-col justify-center items-center space-x-4 ${emailSent ? "" : "hidden"}`}>
                         <h2 className="text-2xl md:text-3xl lg:text-6xl uppercase font-black text-white">ON SE VOIT BIENTÔT !</h2>
                         <h2 className="text-xs md:text-lg uppercase font-bold text-white text-center mt-2">Vous allez recevoir un mail de confirmation.</h2>
+                        <h6 className="text-xs md:text-lg uppercase font-bold text-white text-center mt-5">Suivez-nous <a href="https://twitter.com/essencielapp" className="underline">Twitter</a> !</h6>
                     </div>
                 </main>
 
