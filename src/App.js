@@ -1,13 +1,23 @@
 import './index.css';
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import emailjs from '@emailjs/browser';
 import {CheckCircleIcon} from "@heroicons/react/outline";
 
 export default function App() {
     const form = useRef();
+    const [emailSent, setEmailSent] = useState(false);
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
 
     const sendEmail = (e) => {
         e.preventDefault();
+        if (!validateEmail(form.current[0].value)) {
+            return
+        }
+        setEmailSent(true);
+        return
         emailjs.send("service_26xelfo","template_ua0nmvj", {
             email: form.current[0].value,
         }, "gax3wU7dnRboYrsEz" )
@@ -24,8 +34,8 @@ export default function App() {
                 <div className="blur-2xl w-full h-full absolute top-0 left-0 z-40 bg-black opacity-50"></div>
 
                 {/* Main content */}
-                <main className="justify-center items-center flex h-screen w-full absolute top-0 left-0 z-50">
-                    <div className="flex flex-col justify-between w-full  space-y-4 p-4">
+                <main className={`justify-center items-center flex h-screen w-full absolute top-0 left-0 z-50`}>
+                    <div className={`flex flex-col justify-between w-full  space-y-4 p-4  ${emailSent ? "hidden" : ""}`}>
 
                         {/* Header */}
                         <div className="mb-4 justify-center items-center flex flex-col">
@@ -38,7 +48,7 @@ export default function App() {
                         </div>
 
                         {/* Input form */}
-                        <form className="justify-center items-center flex flex-row space-x-4 pt-4" onSubmit={sendEmail} ref={form}>
+                        <form onSubmit={sendEmail} ref={form} className={`justify-center items-center flex flex-row space-x-4 pt-4 ${emailSent ? "hidden" : ""}`}>
                             <div>
                                 <input
                                     required={true}
@@ -61,7 +71,11 @@ export default function App() {
                                 <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
                             </button>
                         </form>
-
+                    </div>
+                    {/* Success message */}
+                    <div className={`flex pt-5 flex-col justify-center items-center space-x-4 ${emailSent ? "" : "hidden"}`}>
+                        <h2 className="text-2xl md:text-3xl lg:text-6xl uppercase font-black text-white">ON SE VOIT BIENTÔT !</h2>
+                        <h2 className="text-xs md:text-lg uppercase font-bold text-white text-center mt-2">Vous allez recevoir un mail de confirmation.</h2>
                     </div>
                 </main>
 
