@@ -56,7 +56,7 @@ export default function App() {
                                     id="email"
                                     autoComplete="email"
                                     enterKeyHint={"next"}
-                                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-white rounded-md"
+                                    className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border-white rounded-md w-full md:w-96"
                                     placeholder="Votre adresse email"
                                 />
                             </div>
@@ -66,7 +66,7 @@ export default function App() {
                                 type="button"
                                 value={"Envoyer"}
                                 onClick={sendEmail}
-                                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                                className="inline-flex hidden justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
                             >
                                 <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
                             </button>
