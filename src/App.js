@@ -33,16 +33,16 @@ export default function App() {
                 <div className="blur-2xl w-full h-full absolute top-0 left-0 z-40 bg-black opacity-50"></div>
 
                 {/* Main content */}
-                <main className={`justify-center items-center flex h-screen w-full absolute top-0 left-0 z-50`}>
+                <main className={`justify-center items-center flex h-screen -top-[10%] md:-top-[3%] w-full absolute z-50`}>
                     <div className={`flex flex-col justify-between w-full  space-y-4 p-4  ${emailSent ? "hidden" : ""}`}>
 
                         {/* Header */}
                         <div className="mb-4 justify-center items-center flex flex-col">
                             <h1 className="text-2xl md:text-3xl lg:text-6xl uppercase font-black text-white">Découvrez EssenCiel</h1>
                             <h2 className="text-xs md:text-lg uppercase font-bold text-white text-center mt-2">Rejoignez la file d'attente pour accéder à la BÊTA fermée</h2>
-                        </div>E
+                        </div>
                         {/* Description */}
-                        <div className="text-center text-white">
+                        <div className="text-center text-white hidden md:block">
                             <p>Après avoir rempli le formulaire, vous recevrez un mail de confirmation. Nous vous contacterons dès que nous publierons la BÊTA.</p>
                         </div>
 
@@ -55,6 +55,7 @@ export default function App() {
                                     name="email"
                                     id="email"
                                     autoComplete="email"
+                                    enterKeyHint={"next"}
                                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-white rounded-md"
                                     placeholder="Votre adresse email"
                                 />
