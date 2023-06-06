@@ -16,13 +16,12 @@ export default function App() {
         if (!validateEmail(form.current[0].value)) {
             return
         }
-        setEmailSent(true);
-        return
         emailjs.send("service_26xelfo","template_ua0nmvj", {
             email: form.current[0].value,
         }, "gax3wU7dnRboYrsEz" )
             .then((result) => {
                 console.log(result.text);
+                setEmailSent(true);
             }, (error) => {
                 console.log(error.text);
             });
